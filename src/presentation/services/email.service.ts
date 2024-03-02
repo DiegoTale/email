@@ -18,13 +18,13 @@ export class EmailService {
   constructor(
     mailerService: string,
     mailerEmail: string,
-    mailerEmailPassword: string
+    senderEmailPassword: string
   ) {
     this.transporter = nodemailer.createTransport({
       service: mailerService,
       auth: {
         user: mailerEmail,
-        pass: mailerEmailPassword,
+        pass: senderEmailPassword,
       },
     });
   }
@@ -40,7 +40,7 @@ export class EmailService {
         attachments: attachements,
       });
 
-      // console.log( sentInformation );
+      console.log(sentInformation);
 
       return true;
     } catch (error) {

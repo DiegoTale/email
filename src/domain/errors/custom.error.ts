@@ -10,7 +10,7 @@ export class CustomError extends Error {
     return new CustomError(400, message);
   }
 
-  static unaauhorized(message: string) {
+  static unauthorized(message: string) {
     return new CustomError(401, message);
   }
 
@@ -18,7 +18,7 @@ export class CustomError extends Error {
     return new CustomError(403, message);
   }
 
-  static norFound(message: string) {
+  static notFound(message: string) {
     return new CustomError(404, message);
   }
 
