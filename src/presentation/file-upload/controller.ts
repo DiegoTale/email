@@ -17,22 +17,18 @@ export class FileUploadController {
   };
 
   uploadFile = async (req: Request, res: Response) => {
-    // const files = req.files;
+    const files = req.files;
 
-    // if (!req.files || Object.keys(req.files).length === 0) {
-    //   return res.status(400).json({ error: "No file were selected" });
-    // }
+    if (!req.files || Object.keys(req.files).length === 0) {
+      return res.status(400).json({ error: "No file were selected" });
+    }
 
-    // const file = req.files.file as UploadedFile;
+    const file = req.files.file as UploadedFile;
 
-    // this.fileUploadService
-    //   .uploadSingle(file)
-    //   .then((uploaded) => res.json(uploaded))
-    //   .catch((error) => this.handleError(error, res));
-
-    console.log({ files: req.files });
-
-    res.json("uploadFile");
+    this.fileUploadService
+      .uploadSingle(file)
+      .then((uploaded) => res.json(uploaded))
+      .catch((error) => this.handleError(error, res));
   };
 
   uploadMultipleFiles = async (req: Request, res: Response) => {
