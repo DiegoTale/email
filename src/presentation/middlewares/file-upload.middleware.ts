@@ -9,7 +9,7 @@ export class FileUploadMiddleware {
     if (!Array.isArray(req.files.file)) {
       req.body.files = [req.files.file];
     } else {
-      req.body.files.file;
+      req.body.files = req.files.file;
     }
 
     next();

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-export class TypMiddleware {
+export class TypeMiddleware {
   static validTypes(validTypes: string[]) {
     return (req: Request, res: Response, next: NextFunction) => {
       const type = req.url.split("/").at(2) ?? "";
